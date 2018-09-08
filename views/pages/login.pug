@@ -11,7 +11,7 @@ html(lang='en')
             | Login
           if errMsg
             p.errMsg= errMsg 
-      form.form-inline(method='POST' action='/login')
+      form.form-inline(action='/login', method='POST')
         .form-group
           input.form-control(type='email', name='email', placeholder='email')
           input.form-control(type='password', name='password', placeholder='password')

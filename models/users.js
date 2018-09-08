@@ -15,7 +15,6 @@ var UserSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
     },
     created_on: {
         type: Date,
@@ -28,8 +27,15 @@ UserSchema.methods.generateHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-UserSchema.methods.validPassword = (password) => {
-    return bcrypt.compareSync(password, this.password);
+UserSchema.methods.validPassword = (user, password) => {
+    console.log(user);
+    if (user.password != null) {
+        console.log(password)
+        console.log(user.password)
+        return bcrypt.compareSync(password, user.password);
+    } else {
+        return false;
+    }
 };
 
 /* Create User Model */
