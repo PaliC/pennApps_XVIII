@@ -10,4 +10,4 @@ a [Sails v1](https://sailsjs.com) application
 
 ## Running
 1. `DEBUG=pennappsxviii:* npm start`
-2. Visit [http://localhost:3000/]
+2. Visit [http://localhost:3000/](http://localhost:3000/)
