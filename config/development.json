@@ -1,0 +1,6 @@
+{
+  "host": "localhost",
+  "devURL": "http://localhost:3000",
+  "env": "development",
+  "dbURL": "mongodb://db_admin:pennapps18@ds149682.mlab.com:49682/pennappsxviii"
+}
