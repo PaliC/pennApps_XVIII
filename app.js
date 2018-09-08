@@ -1,41 +1,58 @@
-var createError = require('http-errors');
+/* Module dependencies */
 var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var path = require('path');
+var bParser = require('body-parser');
+var session = require('express-session');
+var mongoose = require('mongoose');
+var mongodbStore = require('connect-mongo')(session);
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
+var cookieParser = require('cookie-parser');
+/* Create app instance */
 var app = express();
 
-// view engine setup
+/* Module variables */
+var config = require('./config/config');
+var port = process.env.PORT || 3000;
+var env = config.env;
+var router = require('./routes/routes')
+var dbURL = config.dbURL;
+var db;
+
+/* Module Settings and Config */
+app.set('port', port);
+app.set('env', env);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+mongoose.connect(dbURL);
+db = mongoose.connection;
+
+db.on('error', (err) => {
+  console.error('There was a db connection error');
+  return console.error(err.message);
+});
+
+db.once('connected', () => {
+  return console.log('Successfully connected to ' + dbURL);
+});
+
+db.once('disconnected', () => {
+  return console.log('Successfully disconnected from ' + dbURL);
+});
+
+/* Middleware */
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bParser.json());
+app.use(bParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  name: 'xpressBlu.sess', store: new mongodbStore({
+    mongooseConnection: mongoose.connection,
+  touchAfter: 24 * 3600}), secret: 'qwertyuiop123456789', resave: false,
+  saveUninitialized: false, cookie: {maxAge: 1000 * 60 * 15}}));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+app.use('/', router);
 
 module.exports = app;
