@@ -1,41 +1,77 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+/*=========== AUTHENTICATION ROUTES ================ */
+const express = require('express');
+const docusign = require('docusign-esign');
+const async = require('async');
+const path = require('path');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a'; // Integrator Key associated with your DocuSign Integration
+let email = '';  // Email for your DocuSign Account
+let password = ''; 
+var userId = 'e723627d-4ae2-4e74-9af9-27cdc0fe38aa';
+var accountId = '97a76b19-e6e9-486a-b85a-2db8ae10d10c';
 
-var app = express();
+let apiClient = new docusign.ApiClient();
+apiClient.setBasePath('https://demo.docusign.net/restapi');
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+// create JSON formatted auth header
+let creds = JSON.stringify({
+    Username: email,
+    Password: password,
+    IntegratorKey: integratorKey
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+apiClient.addDefaultHeader('X-DocuSign-Authentication', creds); // Change to JWT later
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// assign api client to the Configuration object
+docusign.Configuration.default.setDefaultApiClient(apiClient);
+
+/*=========== USING DOCUSIGN API ================ */
+// create a new envelope object that we will manage the signature request through
+var envDef = new docusign.EnvelopeDefinition();
+envDef.emailSubject = 'Please sign this document sent from Node SDK';
+envDef.templateId = 'c76d7186-3319-4485-8f29-b80510e905b1';
+
+// create a template role with a valid templateId and roleName and assign signer info
+var tRole = new docusign.TemplateRole();
+tRole.roleName = 'Doctor';
+tRole.name = 'Labib Hussain';
+tRole.email = 'lhussain@princeton.edu';
+
+var tRole2 = new docusign.TemplateRole();
+tRole2.roleName = 'Doctor';
+tRole2.name = 'Labib Hussain';
+tRole2.email = 'lhussain@princeton.edu';
+
+// create a list of template roles and add our newly created role
+var templateRolesList = [];
+templateRolesList.push(tRole);
+templateRolesList.push(tRole2);
+
+// assign template role(s) to the envelope
+envDef.templateRoles = templateRolesList;
+
+// send the envelope by setting |status| to 'sent'. To save as a draft set to 'created'
+envDef.status = 'sent';
+
+// use the |accountId| we retrieved through the Login API to create the Envelope
+var accountId = '6437293';
+
+// instantiate a new EnvelopesApi object
+let envelopesApi = new docusign.EnvelopesApi();
+let EnvelopeSummary = new docusign.EnvelopeSummary();
+
+// call the createEnvelope() API
+EnvelopeSummary = envelopesApi.createEnvelope(accountId, { 'envelopeDefinition': envDef }, function (err, envelopeSummary, response) {
+    if (err) {
+        console.log(err);
+    }
+    console.log('EnvelopeSummary: ' + JSON.stringify(EnvelopeSummary));
 });
 
-module.exports = app;
+/* ================== LOCALHOST CONNECTION =========== */
+app.listen(port, host, function (err) {
+    if (err)
+        throw err;
+
+    console.log('Your server is running on http://' + host + ':' + port + '.');
+});
