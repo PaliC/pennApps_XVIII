@@ -67,6 +67,7 @@ function sendDocument(docName, docEmail, patName, patEmail){
             // console.slog(err);
         }
         console.log('EnvelopeSummary: ' + JSON.stringify(EnvelopeSummary));
+	return EnvelopeSummary;
     });
 }
 
