@@ -44,12 +44,12 @@ router.get('/test', function (req, res) {
 });
 //---------------------------App routes-----------------------------------------
 router.get('/', function (req, res) {
-  return res.render('pages/index');
+  return res.render('pages/index', {user: req.user});
 });
 
 router.route('/login')
   .get(function (req, res) {
-    return res.render('pages/login');
+    return res.render('pages/login', {user: req.user});
   })
   .post(function(req, res, next) {
     passport.authenticate('local-login', function(err, user, info) {
@@ -64,7 +64,7 @@ router.route('/login')
           console.error(err);
           return next(err);
         }
-        return res.redirect('/dashboard');
+        return res.render('pages/dashboard', {user: req.user});
       });
     })(req, res, next);
   });
@@ -93,8 +93,7 @@ router.route('/signup')
 
 router.get('/dashboard', isLoggedIn, function (req, res) {
   return res.render('pages/dashboard', {
-    username: req.user.username,
-    email: req.user.email
+    user: req.user,
     });
 });
 

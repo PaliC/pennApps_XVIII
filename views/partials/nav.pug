@@ -11,7 +11,13 @@ block navbar
         ul.nav.navbar-nav.navbar-right
           li.active
             a(href='/') HOME
-          li.active
-            a(href='login') PATIENT LOG IN
-          li.active
-            a(href='login') DOCTOR LOG IN
+          if user
+            li.active
+              a(href='dashboard') DASHBOARD
+            li.active
+              a(href='logout') LOG OUT
+          else
+            li.active
+              a(href='signup') REGISTER
+            li.active
+              a(href='login') LOG IN
