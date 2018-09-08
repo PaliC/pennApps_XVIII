@@ -3,6 +3,10 @@
 
 a [Sails v1](https://sailsjs.com) application
 
+## Installation
+1. Make sure you have npm installed: https://nodejs.org/en/download/
+2. Install sails: `npm install sails -g`
+3. Install dependencies: `sudo npm install`
 
 ### Links
 
