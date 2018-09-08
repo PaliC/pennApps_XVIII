@@ -1,15 +1,13 @@
 
 # pennappsxviii
 
-a [Sails v1](https://sailsjs.com) application
-
 ## Installation
 1. Make sure you have npm installed: https://nodejs.org/en/download/
 2. Install express in project directory: `npm install express --save`
-3. Install dependencies: `sudo npm install`
+3. Install dependencies: `npm install`
 
 ## Running
-1. `DEBUG=pennappsxviii:* npm start`
+1. `nodemon server`
 2. Visit [http://localhost:3000/](http://localhost:3000/)
 
 Sandbox creds:
