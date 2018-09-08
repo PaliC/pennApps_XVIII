@@ -4,7 +4,7 @@ const docusign = require('docusign-esign');
 const async = require('async');
 const path = require('path');
 
-function sendDocument(docName, docEmail, patName, patEmail){
+function sendDocument(provName, provEmail, patName, patEmail){
     let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a'; // Integrator Key associated with your DocuSign Integration
     let email = '';  // Email for your DocuSign Account
     let password = '';
@@ -34,9 +34,9 @@ function sendDocument(docName, docEmail, patName, patEmail){
 
 // create a template role with a valid templateId and roleName and assign signer info
     var tRole = new docusign.TemplateRole();
-    tRole.roleName = 'Doctor';
-    tRole.name = docName;
-    tRole.email = docEmail;
+    tRole.roleName = 'Provider';
+    tRole.name = provName;
+    tRole.email = provEmail;
 
     var tRole2 = new docusign.TemplateRole();
     tRole2.roleName = 'Patient';
@@ -72,7 +72,6 @@ function sendDocument(docName, docEmail, patName, patEmail){
 }
 
 
-sendDocument('doctor','doc@mailinator.com','patient','pat@mailinator.com');
 
 
 
