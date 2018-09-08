@@ -1,9 +1,9 @@
-doctype html
-html
-  body
-    main.container
-      .jumbotron
-        h1
-          span.fa.fa-user Welcome
-        p Your username is: #{username}
-        p Your email is: #{email}
+extends layouts
+
+block content
+  main.container
+    .jumbotron
+      h1
+        span.fa.fa-user Welcome
+      p Your username is: #{username}
+      p Your email is: #{email}
