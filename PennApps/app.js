@@ -6,8 +6,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || 'localhost';
 
-const integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a'; // An IK for a non-mobile docusign account
-const clientSecret = '502a911c-0ff3-43b0-b426-077eb3c79588';
+const integratorKey = 'f08c4f47-a461-4db0-8687-a8d3148bf206'; // An IK for a non-mobile docusign account
+const clientSecret = 'b281e28e-7b12-44de-ae1e-b904c4cb2a4d';
 const redirectUri = 'http://localhost:3000/auth'; // This needs to be registered with the integrator key in your admin account
 const basePath = 'https://demo.docusign.net/restapi';
 
@@ -38,11 +38,48 @@ app.get('/auth', function (req, res) {
 
         apiClient.getUserInfo(oAuthToken.accessToken, function (err, userInfo) {
             console.log("UserInfo: " + userInfo);
-            console.log("Access Token: " + oAuthToken.accessToken);
             // parse first account's baseUrl
             // below code required for production, no effect in demo (same
             // domain)
             apiClient.setBasePath(userInfo.accounts[0].baseUri + "/restapi");
+
+
+// SEND ENVELOPE
+    // create a new envelope object that we will manage the signature request through
+var envDef = new docusign.EnvelopeDefinition();
+envDef.emailSubject = 'Please sign this document sent from Node SDK';
+envDef.templateId = '564ad803-463c-458e-a726-4196effe0862';
+
+// create a template role with a valid templateId and roleName and assign signer info
+var tRole = new docusign.TemplateRole();
+tRole.roleName = 'Practictioner';
+tRole.name = '{USER_NAME}';
+tRole.email = 'r@gmail.com';
+
+// set the clientUserId on the recipient to mark them as embedded (ie we will generate their signing link)
+tRole.clientUserId = '1001';
+
+// create a list of template roles and add our newly created role
+var templateRolesList = [];
+templateRolesList.push(tRole);
+
+// assign template role(s) to the envelope
+envDef.templateRoles = templateRolesList;
+
+// send the envelope by setting |status| to 'sent'. To save as a draft set to 'created'
+envDef.status = 'sent';
+
+// use the |accountId| we retrieved through the Login API to create the Envelope
+var accountId = "759fff0c-d8e5-4c6c-b725-79a89aff2579";
+
+// instantiate a new EnvelopesApi object
+var envelopesApi = new docusign.EnvelopesApi();
+
+// call the createEnvelope() API
+envelopesApi.createEnvelope(accountId, {'envelopeDefinition': envDef}, function (err, envelopeSummary, response) {
+  console.log('EnvelopeSummary: ' + JSON.stringify(envelopeSummary));
+});
+
             res.send(userInfo);
         });
     });
@@ -53,4 +90,6 @@ app.listen(port, host, function (err) {
         throw err;
 
     console.log('Your server is running on http://' + host + ':' + port + '.');
+
+
 });
