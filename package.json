@@ -1,0 +1,22 @@
+{
+  "name": "pennappsxviii",
+  "version": "1.0.0",
+  "description": "a [Sails v1](https://sailsjs.com) application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaliC/pennApps_XVIII.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaliC/pennApps_XVIII/issues"
+  },
+  "homepage": "https://github.com/PaliC/pennApps_XVIII#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
