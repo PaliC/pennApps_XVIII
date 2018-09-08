@@ -15,8 +15,8 @@ apiClient.setBasePath('https://demo.docusign.net/restapi');
 
 // create JSON formatted auth header
 let creds = JSON.stringify({
-    Username: email,
-    Password: password,
+    Username: 'lhussain@princeton.edu',
+    Password: 'Hussain123!',
     IntegratorKey: integratorKey
 });
 
@@ -38,7 +38,7 @@ tRole.name = 'Labib Hussain';
 tRole.email = 'lhussain@princeton.edu';
 
 var tRole2 = new docusign.TemplateRole();
-tRole2.roleName = 'Doctor';
+tRole2.roleName = 'Patient';
 tRole2.name = 'Labib Hussain';
 tRole2.email = 'lhussain@princeton.edu';
 
@@ -69,9 +69,3 @@ EnvelopeSummary = envelopesApi.createEnvelope(accountId, { 'envelopeDefinition':
 });
 
 /* ================== LOCALHOST CONNECTION =========== */
-app.listen(port, host, function (err) {
-    if (err)
-        throw err;
-
-    console.log('Your server is running on http://' + host + ':' + port + '.');
-});
