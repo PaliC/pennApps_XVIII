@@ -34,7 +34,7 @@ function sendDocument(docName, docEmail, patName, patEmail){
 
 // create a template role with a valid templateId and roleName and assign signer info
     var tRole = new docusign.TemplateRole();
-    tRole.roleName = 'Doctor';
+    tRole.roleName = 'Provider';
     tRole.name = docName;
     tRole.email = docEmail;
 
@@ -72,7 +72,7 @@ function sendDocument(docName, docEmail, patName, patEmail){
 }
 
 
-sendDocument('doctor','doc@mailinator.com','patient','pat@mailinator.com');
+sendDocument('provider','doc@mailinator.com','patient','pat@mailinator.com');
 
 
 
