@@ -35,13 +35,8 @@ function sendDocument(provName, provEmail, patName, patEmail){
 // create a template role with a valid templateId and roleName and assign signer info
     var tRole = new docusign.TemplateRole();
     tRole.roleName = 'Provider';
-<<<<<<< HEAD
-    tRole.name = docName;
-    tRole.email = docEmail;
-=======
     tRole.name = provName;
     tRole.email = provEmail;
->>>>>>> c6670bf357a943153f82745df06f2bea44089c02
 
     var tRole2 = new docusign.TemplateRole();
     tRole2.roleName = 'Patient';
@@ -75,14 +70,5 @@ function sendDocument(provName, provEmail, patName, patEmail){
 	return EnvelopeSummary;
     });
 }
-
-
-<<<<<<< HEAD
-sendDocument('provider','doc@mailinator.com','patient','pat@mailinator.com');
-=======
->>>>>>> c6670bf357a943153f82745df06f2bea44089c02
-
-
-
 /* ================== LOCALHOST CONNECTION =========== */
 
