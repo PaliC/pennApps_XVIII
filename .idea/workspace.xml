@@ -28,14 +28,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1119" />
+          <entry key="js" value="1122" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1119" />
+          <entry key="JavaScript" value="1122" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.lifecycle.project" />
+      <usages-collector id="statistics.js.language.service.starts" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -43,7 +45,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="375">
               <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -55,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statehelpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="188" column="44" selection-start-line="188" selection-start-column="44" selection-end-line="188" selection-end-column="44" />
+            <state relative-caret-position="813">
+              <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
             </state>
           </provider>
         </entry>
@@ -74,7 +76,7 @@
         <entry file="file://$PROJECT_DIR$/PennApps/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -93,6 +95,7 @@
       <find>documentId</find>
       <find>createEn</find>
       <find>client</find>
+      <find>envelopesApi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,6 +118,287 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/PennApps/node_modules/@babel/code-frame/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/@babel/highlight/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/accepts/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/acorn-jsx/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/acorn/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ajv-keywords/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ajv/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ansi-escapes/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ansi-regex/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ansi-styles/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/argparse/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/array-flatten/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/array-union/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/array-uniq/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/arrify/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/async/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/asynckit/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/balanced-match/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/bluebird/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/body-parser/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/body-parser/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/body-parser/node_modules/qs/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/body-parser/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/brace-expansion/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/bson/browser_build/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/bson/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/buffer-equal-constant-time/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/bytes/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/caller-path/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/callsites/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/chalk/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/chardet/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/circular-json/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/cli-cursor/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/cli-width/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/color-convert/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/color-name/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/combined-stream/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/component-emitter/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/concat-map/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/content-disposition/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/content-type/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/cookie-signature/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/cookie/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/cookiejar/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/core-util-is/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/crc/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/cross-spawn/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/deep-is/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/del/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/delayed-stream/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/depd/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/destroy/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/doctrine/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/docusign-esign/node_modules/jsonwebtoken/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/docusign-esign/node_modules/ms/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/docusign-esign/node_modules/superagent/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/docusign-esign/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ecdsa-sig-formatter/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ee-first/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ejs/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/encodeurl/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/escape-html/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/escape-string-regexp/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/eslint-scope/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/eslint-utils/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/eslint-visitor-keys/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/eslint/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/espree/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/esprima/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/esquery/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/esrecurse/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/estraverse/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/esutils/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/etag/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express-session/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express-session/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/body-parser/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/raw-body/node_modules/depd/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/raw-body/node_modules/http-errors/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/raw-body/node_modules/setprototypeof/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/node_modules/raw-body/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/express/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/extend/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/external-editor/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/fast-deep-equal/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/fast-json-stable-stringify/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/fast-levenshtein/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/figures/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/file-entry-cache/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/finalhandler/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/finalhandler/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/flat-cache/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/form-data/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/formidable/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/forwarded/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/fresh/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/fs.realpath/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/functional-red-black-tree/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/generaterr/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/glob/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/globals/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/globby/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/graceful-fs/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/has-flag/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/http-errors/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ignore/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/imurmurhash/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/inflight/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/inherits/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/inquirer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ipaddr.js/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/is-fullwidth-code-point/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/is-path-cwd/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/is-path-in-cwd/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/is-path-inside/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/is-promise/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/is-resolvable/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/isarray/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/isexe/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/js-tokens/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/js-yaml/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/json-schema-traverse/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/json-stable-stringify-without-jsonify/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/jsonwebtoken/node_modules/ms/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/jsonwebtoken/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/jwa/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/jws/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/kareem/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/levn/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.get/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.includes/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.isboolean/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.isinteger/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.isnumber/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.isplainobject/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.isstring/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash.once/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/media-typer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/merge-descriptors/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/method-override/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/methods/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mime-db/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mime-types/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mime/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mimic-fn/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/minimatch/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/minimist/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mkdirp/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongodb-core/node_modules/bson/browser_build/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongodb-core/node_modules/bson/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongodb-core/node_modules/safe-buffer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongodb-core/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongodb/node_modules/safe-buffer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongodb/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose-legacy-pluralize/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/aggregate/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/express/connection-sharing/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/geospatial/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/lean/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/mapreduce/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/promises/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/querybuilder/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/examples/replicasets/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/node_modules/safe-buffer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mongoose/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mpath/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mquery/node_modules/safe-buffer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mquery/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/ms/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/mute-stream/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/natural-compare/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/negotiator/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/nice-try/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/oauth/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/object-assign/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/on-finished/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/on-headers/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/once/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/onetime/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/optionator/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/os-tmpdir/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/parseurl/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/passport-local-mongoose/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/passport-local/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/passport-oauth2/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/passport-strategy/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/passport/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/path-is-absolute/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/path-is-inside/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/path-key/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/path-to-regexp/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/pause/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/pify/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/pinkie-promise/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/pinkie/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/pluralize/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/prelude-ls/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/process-nextick-args/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/progress/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/proxy-addr/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/punycode/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/qs/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/random-bytes/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/range-parser/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/raw-body/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/raw-body/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/readable-stream/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/regexp-clone/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/regexpp/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/require-uncached/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/require_optional/node_modules/resolve-from/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/require_optional/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/require_optional/test/nestedTest/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/resolve-from/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/restore-cursor/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rimraf/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/run-async/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/ajax/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/internal-compatibility/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/operators/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/src/ajax/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/src/internal-compatibility/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/src/operators/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/src/testing/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/src/webSocket/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/testing/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/rxjs/webSocket/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/safe-buffer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/safer-buffer/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/saslprep/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/scmp/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/semver/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/send/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/send/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/serve-static/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/setprototypeof/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/shebang-command/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/shebang-regex/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/signal-exit/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/slice-ansi/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/sliced/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/sprintf-js/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/statuses/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/string-width/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/string_decoder/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/strip-ansi/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/strip-json-comments/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/superagent/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/supports-color/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/table/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/text-table/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/through/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/tmp/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/tslib/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/type-check/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/type-is/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/uid-safe/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/uid2/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/unpipe/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/uri-js/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/util-deprecate/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/utils-merge/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/vary/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/which/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/wordwrap/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/wrappy/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/write/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/node_modules/xtend/package.json" />
+      <path value="$PROJECT_DIR$/PennApps/package.json" />
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
@@ -127,6 +411,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,7 +428,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -163,18 +447,19 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bfbced3e-0184-4c62-8b7d-d97ba3559b75" name="Default Changelist" comment="" />
+      <changelist id="10c54aa1-30ea-4bbb-9157-0affe5e5c99c" name="Default Changelist" comment="" />
       <created>1536419383484</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536419383484</updated>
       <workItem from="1536419384548" duration="1772000" />
       <workItem from="1536424628712" duration="732000" />
+      <workItem from="1536467166234" duration="2693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14805000" />
+    <option name="totallyTimeSpent" value="17269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -199,13 +484,16 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="375">
           <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -216,11 +504,12 @@
     <entry file="file://$PROJECT_DIR$/PennApps/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compositeTemplates.js" />
+    <entry file="file://$PROJECT_DIR$/comosite.js" />
     <entry file="file://$PROJECT_DIR$/PennApps/node_modules/docusign-esign/src/api/EnvelopesApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -228,11 +517,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/comosite.js" />
     <entry file="file://$PROJECT_DIR$/statehelpers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="188" column="44" selection-start-line="188" selection-start-column="44" selection-end-line="188" selection-end-column="44" />
+        <state relative-caret-position="813">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
         </state>
       </provider>
     </entry>
