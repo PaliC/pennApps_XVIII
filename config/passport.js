@@ -19,7 +19,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(id, done) {
   Patient.findById(id, function(err, user) {
-    if (!user.username) {
+    if (!user) {
       Provider.findById(id, function(err, user) {
         return done(null, user);
       })
