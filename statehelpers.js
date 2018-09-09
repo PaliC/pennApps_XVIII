@@ -1,66 +1,209 @@
-/*=========== AUTHENTICATION ROUTES ================ */
-const express = require('express');
-const docusign = require('docusign-esign');
-const async = require('async');
-const path = require('path');
+const express = require('express')
+    , passport = require('passport')
+    , session = require('express-session')
+    , docusign = require('docusign-esign')
+    , moment = require('moment')
+    , fs = require('fs-extra')
+    , path = require('path')
+    , {promisify} = require('util') // http://2ality.com/2017/05/util-promisify.html
+    , async = require('async')
 
-function sendDocument(provName, provEmail, patName, patEmail){
-    let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a'; // Integrator Key associated with your DocuSign Integration
-    let email = '';  // Email for your DocuSign Account
-    let password = '';
+;
+
+
+function make_promise(obj, method_name) {
+    let promise_name = method_name + '_promise';
+    if (!(promise_name in obj)) {
+        obj[promise_name] = promisify(obj[method_name]).bind(obj)
+    }
+    return obj[promise_name]
+}
+
+function signDocuments(providerName, providerEmail, patientName, patientEmail, prescriptions) {
+    let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a';                 // Integrator Key associated with your DocuSign Integration
+    let email = 'lhussain@princeton.edu';                           // Email for your DocuSign Account
+    let password = 'Hussain123!';                       // Password for your DocuSign Account
+    let docusignEnv = 'demo';                       // DocuSign Environment generally demo for testing purposes
+    let firstRecipientFullName = providerName;                // First Recipient's Full Name
+    let firstRecipientEmail = providerEmail;            // First Recipient's Email Address
+    let firstRecipientRoleName = 'Provider'         // First Recipient's Template Role
+    let secondRecipientFullName = patientName;      // Second Recipient's Full Name
+    let secondRecipientEmail = patientEmail;            // Second Recipient's Email Address
+    let secondRecipientRoleName = 'Patient';        // Second Recipient's Template Role
+    let firstTemplateId = 'c76d7186-3319-4485-8f29-b80510e905b1';                   // ID of the Template
+
+    let preFillTextTabValue = secondRecipientFullName;
+    let preFillTextTabName = 'nameTab';
+
+    let preFillTextTabValue2 = prescriptions;
+    let preFillTextTabName2 = 'medicineNames';
+
     var userId = 'e723627d-4ae2-4e74-9af9-27cdc0fe38aa';
     var accountId = '97a76b19-e6e9-486a-b85a-2db8ae10d10c';
 
     let apiClient = new docusign.ApiClient();
-    apiClient.setBasePath('https://demo.docusign.net/restapi');
+    apiClient.setBasePath('https://' + docusignEnv + '.docusign.net/restapi');
 
 // create JSON formatted auth header
     let creds = JSON.stringify({
-        Username: 'lhussain@princeton.edu',
-        Password: 'Hussain123!',
+        Username: email,
+        Password: password,
         IntegratorKey: integratorKey
     });
+
 
     apiClient.addDefaultHeader('X-DocuSign-Authentication', creds); // Change to JWT later
 
 // assign api client to the Configuration object
     docusign.Configuration.default.setDefaultApiClient(apiClient);
 
-    /*=========== USING DOCUSIGN API ================ */
-// create a new envelope object that we will manage the signature request through
-    var envDef = new docusign.EnvelopeDefinition();
-    envDef.emailSubject = 'Please sign this document sent from Node SDK';
-    envDef.templateId = 'c76d7186-3319-4485-8f29-b80510e905b1';
+    let envDef = new docusign.EnvelopeDefinition();
+    let compositeTemplateList = [];
+    let serverTemplateList = [];
+    let inlineTemplateList = [];
 
-// create a template role with a valid templateId and roleName and assign signer info
-    var tRole = new docusign.TemplateRole();
-    tRole.roleName = 'Provider';
-    tRole.name = provName;
-    tRole.email = provEmail;
 
-    var tRole2 = new docusign.TemplateRole();
-    tRole2.roleName = 'Patient';
-    tRole2.name = patName;
-    tRole2.email = patEmail;
+//Create the list for signers
+    let signerList = [];
 
-// create a list of template roles and add our newly created role
-    var templateRolesList = [];
-    templateRolesList.push(tRole);
-    templateRolesList.push(tRole2);
+//Create Signer 1
+    let firstRecipient = new docusign.Signer();
+    firstRecipient.email = firstRecipientEmail;
+    firstRecipient.name = firstRecipientFullName;
+    firstRecipient.clientUserId = '1001';
+    firstRecipient.recipientId = '1';
+    firstRecipient.roleName = firstRecipientRoleName;
+    firstRecipient.routingOrder = '1';
 
-// assign template role(s) to the envelope
-    envDef.templateRoles = templateRolesList;
+    var txtTabInfo = new docusign.Text();
+    txtTabInfo.tabLabel = preFillTextTabName;
+    txtTabInfo.value = preFillTextTabValue;
 
-// send the envelope by setting |status| to 'sent'. To save as a draft set to 'created'
+    var txtTabInfo2 = new docusign.Text();
+    txtTabInfo2.tabLabel = preFillTextTabName2;
+    txtTabInfo2.value = preFillTextTabValue2;
+
+    var tabs = new docusign.Tabs();
+    tabs.textTabs = [];
+    tabs.textTabs.push(txtTabInfo);
+    tabs.textTabs.push(txtTabInfo2);
+    firstRecipient.tabs = tabs;
+
+
+
+//Create Signer 2
+    let secondRecipient = new docusign.Signer();
+    secondRecipient.email = secondRecipientEmail;
+    secondRecipient.name = secondRecipientFullName;
+    secondRecipient.recipientId = '2';
+    secondRecipient.roleName = secondRecipientRoleName;
+    secondRecipient.routingOrder = '2';
+
+
+//Add both to the signerList
+    signerList.push(firstRecipient);
+    signerList.push(secondRecipient);
+
+//Create the Inline Template and add it to the list
+    let inlineTemplate = new docusign.InlineTemplate();
+    let template1Recipients = new docusign.Recipients();
+    template1Recipients.signers = signerList;
+    inlineTemplate.sequence = '1';
+    inlineTemplate.recipients = template1Recipients;
+
+
+    inlineTemplateList.push(inlineTemplate);
+
+
+//Then create the Server Template and add it to the list
+    let serverTemplate = new docusign.ServerTemplate();
+    serverTemplate.sequence = '1';
+    serverTemplate.templateId = firstTemplateId;
+
+    serverTemplateList.push(serverTemplate);
+
+//Now create the Composite Template and add both lists along with the compositeTemplateId
+    let compositeTemplate = new docusign.CompositeTemplate();
+    compositeTemplate.compositeTemplateId = 'ctemplate1';
+    compositeTemplate.serverTemplates = serverTemplateList;
+    compositeTemplate.inlineTemplates = inlineTemplateList;
+
+
+//Then add the Composite Template to the list
+    compositeTemplateList.push(compositeTemplate);
+
+
+    envDef.compositeTemplates = compositeTemplateList;
     envDef.status = 'sent';
+    envDef.emailSubject = 'NODE Test Send';
+    envDef.emailBlurb = 'NODE Test Email';
 
-// use the |accountId| we retrieved through the Login API to create the Envelope
-    var accountId = '6437293';
+    envDef.cdseMode = false;
 
-// instantiate a new EnvelopesApi object
+    let output = JSON.parse(JSON.stringify(envDef));
+
+    console.dir(output, {depth: null, colors: true});
+
     let envelopesApi = new docusign.EnvelopesApi();
     let EnvelopeSummary = new docusign.EnvelopeSummary();
 
+//Attempt the envelope send.
+    let createEnvelope_promise = make_promise(envelopesApi, 'createEnvelope');
+    return (
+        createEnvelope_promise(accountId, {'envelopeDefinition': envDef})
+            .then((result) => {
+                let msg = `\nCreated the envelope! Result: ${JSON.stringify(result)}`
+                console.log(envDef);
+                console.log(msg);
+                // instantiate a new EnvelopesApi object
+                var envelopesApi = new docusign.EnvelopesApi();
+
+// set the url where you want the recipient to go once they are done signing
+// should typically be a callback route somewhere in your app
+                var viewRequest = new docusign.RecipientViewRequest();
+                viewRequest.returnUrl = 'https://www.docusign.com/';
+                viewRequest.authenticationMethod = 'email';
+
+// recipient information must match embedded recipient info we provided in step #2
+                viewRequest.email =  providerEmail;
+                viewRequest.userName = providerName;
+                viewRequest.recipientId = '1';
+                viewRequest.clientUserId = '1001';
+
+// call the CreateRecipientView API
+
+                envelopesApi.createRecipientView(accountId, result.envelopeId, {'recipientViewRequest': viewRequest}, function (error, recipientView, response) {
+                    if (error) {
+                        console.log(result.envelopeId);
+                        console.log('Error: ' + error);
+                        console.log(error.response.body);
+                        return;
+                    }
+
+                    if (recipientView) {
+                        console.log('ViewUrl: ' + JSON.stringify(recipientView));
+                    }
+                    // let returnBundle = {envelopeId: result.envelopeId, url: JSON.stringify(recipientView.url)};
+                    // JSON.stringify()
+                    let justinsBigOlDick = {url: recipientView.url, envelopeId: result.envelopeId};
+                    console.log(JSON.stringify(justinsBigOlDick));
+                    return justinsBigOlDick;
+                });
+                return {msg: msg, envelopeId: result.envelopeId};
+
+            })
+            .catch((err) => {
+                // If the error is from DocuSign, the actual error body is available in err.response.body
+                let errMsg = err.response && err.response.body && JSON.stringify(err.response.body)
+                    , msg = `\nException while creating the envelope! Result: ${err}`;
+                if (errMsg) {
+                    msg += `. API error message: ${errMsg}`;
+                }
+                console.log(msg);
+                return {msg: msg};
+            })
+    )
+}
 // call the createEnvelope() API
     EnvelopeSummary = envelopesApi.createEnvelope(accountId, { 'envelopeDefinition': envDef }, function (err, envelopeSummary, response) {
         if (err) {
@@ -72,3 +215,4 @@ function sendDocument(provName, provEmail, patName, patEmail){
 }
 /* ================== LOCALHOST CONNECTION =========== */
 
+signDocuments('provider', 'provider@mailinator.com', 'patient', 'patient@mailinator.com', 'give the boi his drugs');
