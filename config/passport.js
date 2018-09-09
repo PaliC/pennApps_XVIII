@@ -18,11 +18,14 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  var user = Patient.findById(id);
-  if (!user) {
-    user = Provider.findById(id);
-  }
-  return done(null, user);
+  Patient.findById(id, function(err, user) {
+    if (!user.username) {
+      Provider.findById(id, function(err, user) {
+        return done(null, user);
+      })
+    }
+    else return done(null, user);
+  })
 });
 
 passport.use('provider-signup', new LocalStrategy({
