@@ -1,9 +1,9 @@
 $(document).ready(()=> {
   $('#edit-patient').click(() => {
-    location.href = 'patient/edit';
+    location.href = '/patient/edit';
   });
   $('#edit-provider').click(() => {
-    location.href = 'provider/edit';
+    location.href = '/provider/edit';
   });
   $('button.docusign').click((event) => {
     let button = event.target;
