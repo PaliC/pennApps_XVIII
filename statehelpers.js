@@ -134,8 +134,8 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
 
     envDef.compositeTemplates = compositeTemplateList;
     envDef.status = 'sent';
-    envDef.emailSubject = 'NODE Test Send';
-    envDef.emailBlurb = 'NODE Test Email';
+    envDef.emailSubject = 'Your new prescription!';
+    envDef.emailBlurb = 'Hi Patient, please find attached a PDF copy of your new prescription electronically signed for by your doctor.';
 
     envDef.cdseMode = false;
 

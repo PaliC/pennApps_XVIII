@@ -62,7 +62,7 @@ router.route('/patients/view')
     })
   });
   
-router.route('/patients/edit')
+router.route('/patient/edit')
   .get(function (req, res) {
     return res.render('pages/edit', {provider: false,
       user: req.user});
