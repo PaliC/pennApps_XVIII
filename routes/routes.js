@@ -6,6 +6,7 @@ var
   Provider = require('../models/providers'),
   utilities = require('../models/utilities');
   statehelpers = require('../statehelpers');
+  open = require('open');
 //==============================================================================
 /**
 *Create router instance
@@ -50,11 +51,14 @@ router.get('/', function (req, res) {
   return res.render('pages/index', {user: req.user});
 });
 
-  router.get('^/patients/docusign/:id[0-9a-z]+', function (req, res) {
+  router.get('^/patients/docusign/:id([0-9a-z]*)', function (req, res) {
     Patient.findById(req.params.id, (err, user) => {
+      console.log(req.params.id);
       console.log(req.user.username);
       console.log(req.user.email);
-      statehelpers(req.user.username, req.user.email, "Patient", req.params.id, "");
+      let url = statehelpers(req.user.username, req.user.email, "Patient", user.email, "");
+      console.log("THE URL" + url);
+      return res.redirect(url);
     })
   });
 

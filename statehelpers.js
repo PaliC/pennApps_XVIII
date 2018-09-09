@@ -186,7 +186,8 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
                     // JSON.stringify()
                     let justinsBigOlDick = {url: recipientView.url, envelopeId: result.envelopeId};
                     console.log(JSON.stringify(justinsBigOlDick));
-                    return justinsBigOlDick;
+                    console.log(justinsBigOlDick.url);
+                    return justinsBigOlDick.url;
                 });
                 return {msg: msg, envelopeId: result.envelopeId};
 
