@@ -182,7 +182,11 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
                     if (recipientView) {
                         console.log('ViewUrl: ' + JSON.stringify(recipientView));
                     }
-                    return JSON.stringify(recipientView);
+                    // let returnBundle = {envelopeId: result.envelopeId, url: JSON.stringify(recipientView.url)};
+                    // JSON.stringify()
+                    let justinsBigOlDick = {url: recipientView.url, envelopeId: result.envelopeId};
+                    console.log(JSON.stringify(justinsBigOlDick));
+                    return justinsBigOlDick;
                 });
                 return {msg: msg, envelopeId: result.envelopeId};
 
@@ -200,3 +204,4 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
     )
 }
 
+signDocuments('provider', 'provider@mailinator.com', 'patient', 'patient@mailinator.com', 'give the boi his drugs');
