@@ -2,7 +2,6 @@
 var passport = require('passport');
 var config = require('./config');
 var Patient = require('../models/patients');
-var User = require('../models/users');
 var Provider = require('../models/providers');
 var utilities = require('../models/utilities');
 
@@ -55,7 +54,7 @@ passport.use('provider-signup', new LocalStrategy({
                 return done(null, false, {errMsg: 'Please fill all fields'});
               }
               return errHandler(err);
-              }
+            }
             console.log('New provider successfully created...',newProvider.username);
             console.log('email', email);
             console.log(newProvider);
@@ -107,9 +106,9 @@ passport.use('patient-signup', new LocalStrategy({
 }));
 //---------------------------local login----------------------------------------
 passport.use('patient-login', new LocalStrategy({
-      usernameField : 'email',
-      passwordField : 'password',
-      passReqToCallback : true
+    usernameField : 'email',
+    passwordField : 'password',
+    passReqToCallback : true
   },
   function(req, email, password, done) {
     Patient.findOne({email: email}, function(err, user) {
@@ -129,24 +128,25 @@ passport.use('patient-login', new LocalStrategy({
 }));
 
 passport.use('provider-login', new LocalStrategy({
-  usernameField : 'email',
-  passwordField : 'password',
-  passReqToCallback : true
-},
-function(req, email, password, done) {
-  Provider.findOne({email: email}, function(err, user) {
-    if(err) {
-      return errHandler(err);
-    }
-    if(!user) {
-      return done(null, false, {errMsg: 'User does not exist, please' +
-      ' <a class="errMsg" href="/signup">signup</a>'});
-    }
-    if(!user.validPassword(user, password)) {
-      return done(null, false, {errMsg: 'Invalid password try again'});
-    }
-    return done(null, user);
-  });
+    usernameField : 'email',
+    passwordField : 'password',
+    passReqToCallback : true
+  },
+  function(req, email, password, done) {
+    Provider.findOne({email: email}, function(err, user) {
+      console.log(user);
+      if(err) {
+        return errHandler(err);
+      }
+      if(!user) {
+        return done(null, false, {errMsg: 'User does not exist, please' +
+        ' <a class="errMsg" href="/signup">signup</a>'});
+      }
+      if(!user.validPassword(user, password)) {
+        return done(null, false, {errMsg: 'Invalid password try again'});
+      }
+      return done(null, user);
+    });
 }));
 /**
 *Export Module
