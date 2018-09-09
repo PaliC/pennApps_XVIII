@@ -1,5 +1,6 @@
 /* Module dependencies */
 var mongoose = require('mongoose');
+var bcrypt = require('bcrypt-nodejs');
 
 /* Module variables */
 var ProviderSchema = mongoose.Schema({
@@ -16,15 +17,36 @@ var ProviderSchema = mongoose.Schema({
       type: String,
       required: true,
   },
-  NPI: {
-      type: Number, min:10, max:10,
+  npi: {
+      type: Number, 
       required: true,
+      validate: {
+          validator: function(v) {
+              return /^([0-9]{10}$)/.test(v);
+          }
+      }
   },
   created_on: {
       type: Date,
       default: Date.now,
   }   
 });
+
+/* Schema methods */
+ProviderSchema.methods.generateHash = (password) => {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+ProviderSchema.methods.validPassword = (user, password) => {
+    console.log(user);
+    if (user.password != null) {
+        console.log(password)
+        console.log(user.password)
+        return bcrypt.compareSync(password, user.password);
+    } else {
+        return false;
+    }
+};
 
 var ProviderModel = mongoose.model('Provider', ProviderSchema);
 

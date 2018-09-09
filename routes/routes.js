@@ -14,7 +14,8 @@ var router = express.Router();
 */
 //needed to protect the '/dashboard' route
 function isLoggedIn(req, res, next) {
-  if(req.isAuthenticated()) {
+  console.log(req.session.passport.user);
+  if(req.session.passport.user != undefined) {
     return next();
   }
   return res.redirect('/login');
@@ -47,39 +48,89 @@ router.get('/', function (req, res) {
   return res.render('pages/index', {user: req.user});
 });
 
-router.route('/login')
+router.route('/login/patient')
   .get(function (req, res) {
-    return res.render('pages/login', {user: req.user});
+    return res.render('pages/login', {provider: false});
   })
   .post(function(req, res, next) {
-    passport.authenticate('local-login', function(err, user, info) {
+    passport.authenticate('patient-login', function(err, user, info) {
       if (err) {
         return next(err); // will generate a 500 error
       }
       if (!user) {
-        return res.status(409).render('pages/login', {errMsg: info.errMsg});
+        return res.status(409).render('pages/login', {provider: false, errMsg: info.errMsg});
       }
       req.login(user, function(err){
         if(err){
           console.error(err);
           return next(err);
         }
-        return res.render('pages/dashboard', {user: req.user});
+        req.session.save(function() {
+          console.log('something' + req.session);
+          return res.render('pages/dashboard', {user: req.user});
+        });
       });
     })(req, res, next);
   });
 
-router.route('/signup')
+  router.route('/login/provider')
   .get(function (req, res) {
-    return res.render('pages/signup');
+    return res.render('pages/login', {provider: true});
   })
   .post(function(req, res, next) {
-    passport.authenticate('local-signup', function(err, user, info) {
+    passport.authenticate('provider-login', function(err, user, info) {
       if (err) {
         return next(err); // will generate a 500 error
       }
       if (!user) {
-        return res.status(409).render('pages/signup', {errMsg: info.errMsg});
+        return res.status(409).render('pages/login', {provider: true, errMsg: info.errMsg});
+      }
+      req.login(user, function(err){
+        if(err){
+          console.error(err);
+          return next(err);
+        }
+        req.session.save(function() {
+          console.log('something' + req.session.passport);
+          return res.render('pages/dashboard', {user: req.user});
+        });
+      });
+    })(req, res, next);
+  });
+
+router.route('/signup/provider')
+  .get(function(req, res) {
+    return res.render('pages/signup', {provider: true});
+  })
+  .post(function(req, res, next) {
+    passport.authenticate('provider-signup', function(err, user, info) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.status(409).render('pages/signup', {provider: true, errMsg: info.errMsg});
+      }
+      req.login(user, function(err) {
+        if (err) {
+          console.error(err);
+          return next(err);
+        }
+        return res.render('pages/dashboard', {user: req.user});
+      });
+    }) (req, res, next);
+  });
+
+router.route('/signup/patient')
+  .get(function (req, res) {
+    return res.render('pages/signup', {provider: false});
+  })
+  .post(function(req, res, next) {
+    passport.authenticate('patient-signup', function(err, user, info) {
+      if (err) {
+        return next(err); // will generate a 500 error
+      }
+      if (!user) {
+        return res.status(409).render('pages/signup', {provider: false, errMsg: info.errMsg});
       }
       req.login(user, function(err){
         if(err){
@@ -91,9 +142,19 @@ router.route('/signup')
     })(req, res, next);
   });
 
+router.route('/signup/pre')
+  .get(function (req, res) {
+    return res.render('pages/pre', {login: false});
+  });
+
+router.route('/login/pre')
+  .get(function (req, res) {
+    return res.render('pages/pre', {login: true});
+  })
+
 router.get('/dashboard', isLoggedIn, function (req, res) {
   return res.render('pages/dashboard', {
-    user: req.user,
+      user: req.user,
     });
 });
 
