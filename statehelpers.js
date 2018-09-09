@@ -11,6 +11,14 @@ const express = require('express')
 ;
 
 
+    let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a';                 // Integrator Key associated with your DocuSign Integration
+    let email = 'lhussain@princeton.edu';                           // Email for your DocuSign Account
+    let password = 'Hussain123!';                       // Password for your DocuSign Account
+    let docusignEnv = 'demo';                       // DocuSign Environment generally demo for testing purposes
+    let firstRecipientRoleName = 'Provider'         // First Recipient's Template Role
+    let secondRecipientRoleName = 'Patient';        // Second Recipient's Template Role
+    let firstTemplateId = 'c76d7186-3319-4485-8f29-b80510e905b1';                   // ID of the Template
+
 function make_promise(obj, method_name) {
     let promise_name = method_name + '_promise';
     if (!(promise_name in obj)) {
@@ -20,19 +28,11 @@ function make_promise(obj, method_name) {
 }
 
 function signDocuments(providerName, providerEmail, patientName, patientEmail, prescriptions) {
-    let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a';                 // Integrator Key associated with your DocuSign Integration
-    let email = 'lhussain@princeton.edu';                           // Email for your DocuSign Account
-    let password = 'Hussain123!';                       // Password for your DocuSign Account
-    let docusignEnv = 'demo';                       // DocuSign Environment generally demo for testing purposes
-    let firstRecipientFullName = providerName;                // First Recipient's Full Name
-    let firstRecipientEmail = providerEmail;            // First Recipient's Email Address
-    let firstRecipientRoleName = 'Provider'         // First Recipient's Template Role
     let secondRecipientFullName = patientName;      // Second Recipient's Full Name
     let secondRecipientEmail = patientEmail;            // Second Recipient's Email Address
-    let secondRecipientRoleName = 'Patient';        // Second Recipient's Template Role
-    let firstTemplateId = 'c76d7186-3319-4485-8f29-b80510e905b1';                   // ID of the Template
-
     let preFillTextTabValue = secondRecipientFullName;
+     let firstRecipientFullName = providerName;                // First Recipient's Full Name
+    let firstRecipientEmail = providerEmail;            // First Recipient's Email Address
     let preFillTextTabName = 'nameTab';
 
     let preFillTextTabValue2 = prescriptions;
@@ -204,4 +204,35 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
     )
 }
 
-// signDocuments('provider', 'provider@mailinator.com', 'patient', 'patient@mailinator.com', 'give the boi his drugs');
+function getEnvelopeStatus(accountId, envelopeId) {
+    if (!envelopeId){
+        let msg = `
+PROBLEM: This example software doesn't know which envelope's information should be looked up. <br>
+SOLUTION: First run the <b>Send Envelope via email</b> example to create an envelope.`
+        return {msg: msg}
+    }
+
+    // call the getEnvelope() API
+    let envelopesApi = new docusign.EnvelopesApi();
+    let getEnvelope_promise = make_promise(envelopesApi, 'getEnvelope');
+    return (
+        getEnvelope_promise(accountId, envelopeId, null)
+            .then ((result) => {
+                console.log(`\nGet Envelope result received!`);
+                let h = `Get Envelope result:</p><p><pre><code>${JSON.stringify(result, null, '    ')}</code></pre>`
+                return {msg: h}
+            })
+            .catch ((err) => {
+                // If the error is from DocuSign, the actual error body is available in err.response.body
+                let errMsg = err.response && err.response.body && JSON.stringify(err.response.body)
+                    , msg = `\nException! Result: ${err}`;
+                if (errMsg) {
+                    msg += `. API error message: ${errMsg}`;
+                }
+                console.log(msg);
+                return {msg: msg};
+            })
+    )
+}
+
+getEnvelopeStatus('97a76b19-e6e9-486a-b85a-2db8ae10d10c','f351f743-713d-4fa1-8742-0de75bf3d2ff');
