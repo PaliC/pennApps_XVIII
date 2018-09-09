@@ -5,7 +5,7 @@ $(document).ready(()=> {
   $('#edit-provider').click(() => {
     location.href = 'provider/edit';
   });
-  $('button.annoying').click((event) => {
+  $('button.docusign').click((event) => {
     let button = event.target;
     let url =  '/patients/docusign/' + button.value;
     window.open(url, '_blank');

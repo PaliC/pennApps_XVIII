@@ -13,5 +13,5 @@ block content
                         .center
                             each patient in patients
                               li.swiper-slide= patient.email
-                                button.btn.btn-primary.docusign(type='button')
+                                button.btn.btn-primary.docusign(type='button', value=patient._id)
                                     | Prescribe
