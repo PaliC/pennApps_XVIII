@@ -13,12 +13,5 @@ app.get('/', function (req, res) {
         // Print the response Status Code if a response was received:
         console.log('statusCode:', response && response.statusCode);
         // Print the HTML Body for the FDA Request
-        console.log('body:', body); 
+        console.log('body:', body);
     });
-});
-
-app.listen(port, host, function (err) {
-    if (err)
-        throw err;
-    console.log('Your server is running on http://' + host + ':' + port + '.');
-});
