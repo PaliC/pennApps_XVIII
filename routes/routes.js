@@ -5,6 +5,8 @@ var
   Patient = require('../models/patients'),
   Provider = require('../models/providers'),
   utilities = require('../models/utilities');
+  statehelpers = require('../statehelpers');
+  open = require('open');
 //==============================================================================
 /**
 *Create router instance
@@ -49,6 +51,17 @@ router.get('/', function (req, res) {
   return res.render('pages/index', {user: req.user});
 });
 
+  router.get('^/patients/docusign/:id([0-9a-z]*)', function (req, res) {
+    Patient.findById(req.params.id, (err, user) => {
+      console.log(req.params.id);
+      console.log(req.user.username);
+      console.log(req.user.email);
+      let url = statehelpers(req.user.username, req.user.email, "Patient", user.email, "");
+      console.log("THE URL" + url);
+      return res.redirect(url);
+    })
+  });
+
 router.route('/patients/view')
   .get(function (req, res) {
     Patient.find({}, function(err, users) {
@@ -60,7 +73,14 @@ router.route('/patients/view')
 
       return res.render('pages/patients', {user: req.user, patients: userMap});
     })
-  });
+  })
+    .post(function (req, res, next) {
+      Patient.findById(req.body.id, (err, user) => {
+        console.log(req.body.id);
+        console.log(user.username);
+        console.log(user.email);
+      });
+    });
   
 router.route('/patient/edit')
   .get(function (req, res) {
