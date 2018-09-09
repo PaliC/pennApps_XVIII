@@ -10,5 +10,5 @@ block content
           form.form-inline(action='/patients/view', method='post')
             li.swiper-slide= patient.username
               input.form-control(type='text', name='id', value=patient._id, disabled='')
-              button.btn.btn-primary(type='button', value=patient._id)
+              button.btn.btn-primary.annoying(type='button', value=patient._id)
                 | Send Prescription
