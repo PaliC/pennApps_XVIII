@@ -56,9 +56,16 @@ router.get('/', function (req, res) {
       console.log(req.params.id);
       console.log(req.user.username);
       console.log(req.user.email);
-      let url = statehelpers(req.user.username, req.user.email, "Patient", user.email, "");
-      console.log("THE URL" + url);
-      return res.redirect(url);
+      let promise = statehelpers(req.user.username, req.user.email, "Patient", user.email, "");
+      console.log(promise);
+      promise.then((value) => {
+        console.log("THE OBJECT: " + JSON.stringify(value, null, 2));
+        console.log("THE END");
+        res.redirect(301, value);
+      }).catch((value) => {
+        console.log("ERROR OBJECT: " + JSON.stringify(value, null, 2));
+        console.log("THE END");
+      })
     })
   });
 
@@ -186,7 +193,7 @@ router.route('/signup/provider')
           console.error(err);
           return next(err);
         }
-        return res.render('pages/dashboard', {user: req.user});
+        return res.redirect('/dashboard');
       });
     }) (req, res, next);
   });

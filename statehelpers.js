@@ -160,7 +160,7 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
 // set the url where you want the recipient to go once they are done signing
 // should typically be a callback route somewhere in your app
                 var viewRequest = new docusign.RecipientViewRequest();
-                viewRequest.returnUrl = 'https://www.docusign.com/';
+                viewRequest.returnUrl = 'http://localhost:3000/patients/view';
                 viewRequest.authenticationMethod = 'email';
 
 // recipient information must match embedded recipient info we provided in step #2
@@ -170,27 +170,25 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
                 viewRequest.clientUserId = '1001';
 
 // call the CreateRecipientView API
-
-                envelopesApi.createRecipientView(accountId, result.envelopeId, {'recipientViewRequest': viewRequest}, function (error, recipientView, response) {
-                    if (error) {
+                let urlPromise = make_promise(envelopesApi, 'createRecipientView');
+                return (
+                urlPromise(accountId, result.envelopeId, {'recipientViewRequest': viewRequest}) //function (error, recipientView, response) {
+                    .then( (recipientView) => {
+                        console.log('ViewUrl: ' + JSON.stringify(recipientView));
+                        let justinsBigOlDick = {url: recipientView.url, envelopeId: result.envelopeId};
+                        console.log(JSON.stringify(justinsBigOlDick));
+                        console.log(justinsBigOlDick.url);
+                        return justinsBigOlDick.url;
+                    })
+                    .catch( (error) => {
                         console.log(result.envelopeId);
                         console.log('Error: ' + error);
                         console.log(error.response.body);
-                        return;
-                    }
-
-                    if (recipientView) {
-                        console.log('ViewUrl: ' + JSON.stringify(recipientView));
-                    }
+                    })
+                )
                     // let returnBundle = {envelopeId: result.envelopeId, url: JSON.stringify(recipientView.url)};
                     // JSON.stringify()
-                    let justinsBigOlDick = {url: recipientView.url, envelopeId: result.envelopeId};
-                    console.log(JSON.stringify(justinsBigOlDick));
-                    console.log(justinsBigOlDick.url);
-                    return justinsBigOlDick.url;
-                });
-                return {msg: msg, envelopeId: result.envelopeId};
-
+                // return {msg: msg, envelopeId: result.envelopeId, url: justinsBigOlDick.url};
             })
             .catch((err) => {
                 // If the error is from DocuSign, the actual error body is available in err.response.body
