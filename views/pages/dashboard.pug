@@ -19,9 +19,9 @@ block content
         form.btn-group
           button.btn.btn-primary(type='button', id="edit-provider")
             | Edit Profile
+          button.btn.btn-secondary(type='button', id="view-patients")
+            | View Patients
       else 
         form.btn-group
           button.btn.btn-primary(type='button', id="edit-patient")
             | Edit Profile
-      if user.npi
-        include ./patients
