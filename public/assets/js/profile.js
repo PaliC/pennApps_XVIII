@@ -5,4 +5,7 @@ $(document).ready(()=> {
   $('#edit-provider').click(() => {
     location.href = 'provider/edit';
   });
+  $('#view-patients').click(() => {
+    location.href = '/patients/view';
+  })
 })

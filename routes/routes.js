@@ -49,6 +49,19 @@ router.get('/', function (req, res) {
   return res.render('pages/index', {user: req.user});
 });
 
+router.route('/patients/view')
+  .get(function (req, res) {
+    Patient.find({}, function(err, users) {
+      var userMap = {};
+
+      users.forEach(function(user) {
+        userMap[user.username] = user
+      });
+
+      return res.render('pages/patients', {patients: userMap});
+    })
+  });
+  
 router.route('/patient/edit')
   .get(function (req, res) {
     return res.render('pages/edit', {provider: false,
