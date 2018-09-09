@@ -7,5 +7,10 @@ $(document).ready(()=> {
   });
   $('#view-patients').click(() => {
     location.href = '/patients/view';
-  })
-})
+  });
+  $('button').click((event) => {
+    let button = event.target;
+    let url =  '/patients/docusign/' + button.value;
+    window.open(url, '_blank');
+  });
+});

@@ -49,6 +49,14 @@ router.get('/', function (req, res) {
   return res.render('pages/index', {user: req.user});
 });
 
+router.route('^/patients/docusign/:id([0-9a-z]+)')
+  .get(function (req, res) {
+    Patient.findById(req.params.id, (err, user) => {
+      console.log(req.params.id);
+      console.log(user.username);
+      console.log(user.email);
+    })
+  });
 router.route('/patients/view')
   .get(function (req, res) {
     Patient.find({}, function(err, users) {
@@ -60,7 +68,14 @@ router.route('/patients/view')
 
       return res.render('pages/patients', {patients: userMap});
     })
-  });
+  })
+    .post(function (req, res, next) {
+      Patient.findById(req.body.id, (err, user) => {
+        console.log(req.body.id);
+        console.log(user.username);
+        console.log(user.email);
+      });
+    });
   
 router.route('/patient/edit')
   .get(function (req, res) {
@@ -144,7 +159,6 @@ router.route('/login/patient')
           return next(err);
         }
         req.session.save(function() {
-          console.log('something' + req.session.passport);
           return res.render('pages/dashboard', {user: req.user});
         });
       });
