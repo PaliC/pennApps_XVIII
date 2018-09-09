@@ -205,3 +205,4 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
 }
 
 // signDocuments('provider', 'provider@mailinator.com', 'patient', 'patient@mailinator.com', 'give the boi his drugs');
+module.exports = signDocuments;
