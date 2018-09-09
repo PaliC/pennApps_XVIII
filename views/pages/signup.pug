@@ -4,13 +4,24 @@ block content
     main.container
       div.jumbotron
         h1
-          span.fa.fa-sign-in Signup
-          if errMsg 
-            p.errMsg= errMsg
-        form.form-inline(action='/signup', method='post')
-          div.form-group
-            input.form-control(type='text', name='username', placeholder='username')
-            input.form-control(type='email', name='email', placeholder='email')
-            input.form-control(type='password', name='password', placeholder='password')
-          input.btn.btn-success.btn-default(type='submit')
-        
+          if provider
+            span.fa.fa-sign-in Provider Signup
+          else 
+            span.fa.fa-sign-in Patient Signup
+        if errMsg 
+          p.errMsg= errMsg
+        if provider
+          form.form-inline(action='/signup/provider', method='post')
+            div.form-group
+              input.form-control(type='text', name='username', placeholder='username')
+              input.form-control(type='email', name='email', placeholder='email')
+              input.form-control(type='password', name='password', placeholder='password')
+              input.form-control(type='text', name='npi', placeholder='National Provider Identifier')
+            input.btn.btn-success.btn-default(type='submit')
+        else
+          form.form-inline(action='/signup/patient', method='post')
+            div.form-group
+                input.form-control(type='text', name='username', placeholder='username')
+                input.form-control(type='email', name='email', placeholder='email')
+                input.form-control(type='password', name='password', placeholder='password')
+            input.btn.btn-success.btn-default(type='submit')
