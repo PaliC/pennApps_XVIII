@@ -2,6 +2,8 @@
 var
   express = require('express'),
   passport = require('../config/passport'),
+  Patient = require('../models/patients'),
+  Provider = require('../models/providers'),
   utilities = require('../models/utilities');
 //==============================================================================
 /**
@@ -46,6 +48,46 @@ router.get('/test', function (req, res) {
 router.get('/', function (req, res) {
   return res.render('pages/index', {user: req.user});
 });
+
+router.route('/patient/edit')
+  .get(function (req, res) {
+    return res.render('pages/edit', {provider: false,
+      user: req.user});
+  })
+  .post(function (req, res, next) {
+    let user = req.user;
+    for (var key in req.body) {
+      Patient.update(
+        { user },
+        { $set: 
+          {
+            key: req.body[key]
+          }
+        }
+      )
+    }
+    return res.redirect('/dashboard')
+  });
+
+  router.route('/provider/edit')
+  .get(function (req, res) {
+    return res.render('pages/edit', {provider: true,
+      user: req.user});
+  })
+  .post(function (req, res, next) {
+    let user = req.user;
+    for (var key in req.body) {
+      Provider.update(
+        { user },
+        { $set: 
+          {
+            key: req.body[key]
+          }
+        }
+      )
+    }
+    return res.redirect('/dashboard')
+  });
 
 router.route('/login/patient')
   .get(function (req, res) {
