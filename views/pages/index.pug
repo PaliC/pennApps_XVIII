@@ -1,10 +1,46 @@
-extends ../pages/layout 
+extends layout
 
 block content
-  main.container
-  .jumbotron
-    .page-header.text-center
-      h1
-        span.fa.fa-home 
-        | Welcome!
-      p Apothecary
+  #headerwrap
+    .container
+      .row.centered
+        .col-lg-8.col-lg-offset-2
+          img(src='assets/img/mind-gears.png')
+          h1
+            b
+              spam e
+              | doc
+          h2 Reliable e-prescriptions.
+      // row
+    // container
+  // headerwrap
+  .container.w
+    .row.centered
+      br
+      br
+      .col-lg-4
+        center
+          img(src='assets/img/docusign.png')
+          h4 RELIABLE
+          p
+            | Using the docusign API, edoc authenticates the doctor's signature on prescriptions which reduces forged prescriptions.
+      // col-lg-4
+      .col-lg-4
+        center
+          img(src='assets/img/FDAlogo.png')
+          h4 SAFE
+          p
+            | To ensure that patient's are well-informed about their medication, edoc provides information about the side-effects, dosage, and dangers of the drug using the openFDA API.
+      // col-lg-4
+      .col-lg-4
+        center
+          img(src='assets/img/pillicon.png')
+          h4 EASY-TO-USE
+          p
+            | As soon as the prescription is signed by the doctor, it is available to the patient. Each patient can keep track of their past/current medications using edoc.
+      // col-lg-4
+    // row
+    br
+    br
+  
+    

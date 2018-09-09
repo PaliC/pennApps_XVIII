@@ -90,6 +90,7 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
     firstRecipient.tabs = tabs;
 
 
+
 //Create Signer 2
     let secondRecipient = new docusign.Signer();
     secondRecipient.email = secondRecipientEmail;
@@ -203,5 +204,15 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
             })
     )
 }
+// call the createEnvelope() API
+    EnvelopeSummary = envelopesApi.createEnvelope(accountId, { 'envelopeDefinition': envDef }, function (err, envelopeSummary, response) {
+        if (err) {
+            // console.slog(err);
+        }
+        console.log('EnvelopeSummary: ' + JSON.stringify(EnvelopeSummary));
+	return EnvelopeSummary;
+    });
+}
+/* ================== LOCALHOST CONNECTION =========== */
 
 signDocuments('provider', 'provider@mailinator.com', 'patient', 'patient@mailinator.com', 'give the boi his drugs');

@@ -1,0 +1,23 @@
+block navbar
+  .navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#') edoc
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          li.active
+            a(href='/') HOME
+          if user
+            li.active
+              a(href='/dashboard') DASHBOARD
+            li.active
+              a(href='/logout') LOG OUT
+          else
+            li.active
+              a(href='/signup/pre') REGISTER
+            li.active
+              a(href='/login/pre') LOG IN
