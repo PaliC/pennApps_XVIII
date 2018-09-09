@@ -20,11 +20,6 @@ var ProviderSchema = mongoose.Schema({
   npi: {
       type: Number, 
       required: true,
-      validate: {
-          validator: function(v) {
-              return /^([0-9]{10}$)/.test(v);
-          }
-      }
   },
   created_on: {
       type: Date,

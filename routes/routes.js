@@ -14,7 +14,6 @@ var router = express.Router();
 */
 //needed to protect the '/dashboard' route
 function isLoggedIn(req, res, next) {
-  console.log(req.session.passport.user);
   if(req.session.passport.user != undefined) {
     return next();
   }
@@ -66,7 +65,6 @@ router.route('/login/patient')
           return next(err);
         }
         req.session.save(function() {
-          console.log('something' + req.session);
           return res.render('pages/dashboard', {user: req.user});
         });
       });
@@ -150,7 +148,7 @@ router.route('/signup/pre')
 router.route('/login/pre')
   .get(function (req, res) {
     return res.render('pages/pre', {login: true});
-  })
+  });
 
 router.get('/dashboard', isLoggedIn, function (req, res) {
   return res.render('pages/dashboard', {
