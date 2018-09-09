@@ -148,55 +148,55 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
 
 //Attempt the envelope send.
     let createEnvelope_promise = make_promise(envelopesApi, 'createEnvelope');
-    return (
-        createEnvelope_promise(accountId, {'envelopeDefinition': envDef})
-            .then((result) => {
-                let msg = `\nCreated the envelope! Result: ${JSON.stringify(result)}`
-                console.log(envDef);
-                console.log(msg);
-                // instantiate a new EnvelopesApi object
-                var envelopesApi = new docusign.EnvelopesApi();
+        return (
+            createEnvelope_promise(accountId, {'envelopeDefinition': envDef})
+                .then((result) => {
+                    let msg = `\nCreated the envelope! Result: ${JSON.stringify(result)}`
+                    console.log(envDef);
+                    console.log(msg);
+                    // instantiate a new EnvelopesApi object
+                    var envelopesApi = new docusign.EnvelopesApi();
 
 // set the url where you want the recipient to go once they are done signing
 // should typically be a callback route somewhere in your app
-                var viewRequest = new docusign.RecipientViewRequest();
-                viewRequest.returnUrl = 'https://www.docusign.com/';
-                viewRequest.authenticationMethod = 'email';
+                    var viewRequest = new docusign.RecipientViewRequest();
+                    viewRequest.returnUrl = 'https://www.docusign.com/';
+                    viewRequest.authenticationMethod = 'email';
 
 // recipient information must match embedded recipient info we provided in step #2
-                viewRequest.email =  providerEmail;
-                viewRequest.userName = providerName;
-                viewRequest.recipientId = '1';
-                viewRequest.clientUserId = '1001';
+                    viewRequest.email =  providerEmail;
+                    viewRequest.userName = providerName;
+                    viewRequest.recipientId = '1';
+                    viewRequest.clientUserId = '1001';
 
 // call the CreateRecipientView API
 
-                envelopesApi.createRecipientView(accountId, result.envelopeId, {'recipientViewRequest': viewRequest}, function (error, recipientView, response) {
-                    if (error) {
-                        console.log(result.envelopeId);
-                        console.log('Error: ' + error);
-                        console.log(error.response.body);
-                        return;
-                    }
+                    envelopesApi.createRecipientView(accountId, result.envelopeId, {'recipientViewRequest': viewRequest}, function (error, recipientView, response) {
+                        if (error) {
+                            console.log(result.envelopeId);
+                            console.log('Error: ' + error);
+                            console.log(error.response.body);
+                            return;
+                        }
 
-                    if (recipientView) {
-                        console.log('ViewUrl: ' + JSON.stringify(recipientView));
-                    }
-                    return JSON.stringify(recipientView);
-                });
-                return {msg: msg, envelopeId: result.envelopeId};
+                        if (recipientView) {
+                            console.log('ViewUrl: ' + JSON.stringify(recipientView));
+                        }
+                        return JSON.stringify(recipientView);
+                    });
+                    return {msg: msg, envelopeId: result.envelopeId};
 
-            })
-            .catch((err) => {
-                // If the error is from DocuSign, the actual error body is available in err.response.body
-                let errMsg = err.response && err.response.body && JSON.stringify(err.response.body)
-                    , msg = `\nException while creating the envelope! Result: ${err}`;
-                if (errMsg) {
-                    msg += `. API error message: ${errMsg}`;
-                }
-                console.log(msg);
-                return {msg: msg};
-            })
-    )
-}
+                })
+                .catch((err) => {
+                    // If the error is from DocuSign, the actual error body is available in err.response.body
+                    let errMsg = err.response && err.response.body && JSON.stringify(err.response.body)
+                        , msg = `\nException while creating the envelope! Result: ${err}`;
+                    if (errMsg) {
+                        msg += `. API error message: ${errMsg}`;
+                    }
+                    console.log(msg);
+                    return {msg: msg};
+                })
+        )
+    }
 

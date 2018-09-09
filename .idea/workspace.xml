@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfbced3e-0184-4c62-8b7d-d97ba3559b75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/compositeTemplates.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/domains/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/domains/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/domains/es6-extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/domains/es6-extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/domains/rejection-tracking.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/domains/rejection-tracking.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/domains/synchronous.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/domains/synchronous.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/lib/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/lib/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/lib/es6-extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/lib/es6-extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/lib/rejection-tracking.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/lib/rejection-tracking.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/lib/synchronous.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/lib/synchronous.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/setimmediate/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/setimmediate/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/setimmediate/es6-extensions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/setimmediate/es6-extensions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/setimmediate/rejection-tracking.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/setimmediate/rejection-tracking.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise/setimmediate/synchronous.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise/setimmediate/synchronous.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statehelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/statehelpers.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -34,22 +18,22 @@
     <session id="1187006110">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="3" />
+          <entry key="js" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="3" />
+          <entry key="JavaScript" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="560" />
+          <entry key="js" value="801" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="560" />
+          <entry key="JavaScript" value="801" />
         </counts>
       </usages-collector>
     </session>
@@ -68,23 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statehelpers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="26" selection-start-line="26" selection-end-line="27" selection-end-column="59" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compositeTemplates.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+            <state relative-caret-position="813">
+              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
             </state>
           </provider>
         </entry>
@@ -92,8 +64,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PennApps/node_modules/docusign-esign/src/api/EnvelopesApi.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="3183" column="47" selection-start-line="3183" selection-start-column="37" selection-end-line="3183" selection-end-column="47" />
+            <state relative-caret-position="446">
+              <caret line="3587" column="2" selection-start-line="3587" selection-start-column="2" selection-end-line="3587" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/comosite.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="708">
+              <caret line="198" column="18" lean-forward="true" selection-end-line="202" />
             </state>
           </provider>
         </entry>
@@ -111,9 +92,16 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>documentId</find>
       <find>envdef</find>
       <find>.end</find>
+      <find>medicine</find>
+      <find>emailsubject</find>
+      <find>doc</find>
+      <find>pdf</find>
+      <find>send</find>
+      <find>documentId</find>
+      <find>createEn</find>
+      <find>client</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,8 +112,9 @@
       <list>
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/PennApps/app.js" />
-        <option value="$PROJECT_DIR$/statehelpers.js" />
         <option value="$PROJECT_DIR$/compositeTemplates.js" />
+        <option value="$PROJECT_DIR$/comosite.js" />
+        <option value="$PROJECT_DIR$/statehelpers.js" />
       </list>
     </option>
   </component>
@@ -134,6 +123,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="927" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -188,13 +183,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7556000" />
+    <option name="totallyTimeSpent" value="12766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24972677" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.04480874" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -217,13 +212,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PennApps/node_modules/docusign-esign/src/api/EnvelopesApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="3183" column="47" selection-start-line="3183" selection-start-column="37" selection-end-line="3183" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -241,20 +229,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statehelpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="26" selection-start-line="26" selection-end-line="27" selection-end-column="59" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compositeTemplates.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PennApps/node_modules/docusign-esign/src/api/EnvelopesApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="3587" column="2" selection-start-line="3587" selection-start-column="2" selection-end-line="3587" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comosite.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="198" column="18" lean-forward="true" selection-end-line="202" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/statehelpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="813">
+          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
         </state>
       </provider>
     </entry>
