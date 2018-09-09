@@ -2,14 +2,25 @@ extend layout
 
 block content
   script(src='/assets/js/login.js')
-  main.container
-    div.jumbotron
-      h2 Caring for others or receiving care?
-      if login
-        form.btn-group
-          button.btn-primary(type='button', id='provider-login') Healthcare Provider
-          button.btn-secondary(type='button', id='patient-login') Patient
-      else 
-        form.btn-group
-          button.btn-primary(type='button', id='provider-signup') Healthcare Provider
-          button.btn-secondary(type='button', id='patient-signup') Patient
+  #headerwrap
+            .row.centered
+            center
+                main.container
+                    .jumbotron
+                        .content
+                            h2 
+                                | Hi, I am a...
+                            .center
+                                if login
+                                    form.btn-group
+                                        br
+                                        button.btn-primary(type='button', id='provider-login') Doctor
+                                        br
+                                        button.btn-primary(type='button', id='patient-login') Patient
+                                else 
+                                    form.btn-group
+                                        br
+                                        button.btn-primary(type='button', id='provider-signup') Doctor
+                                        br
+                                        button.btn-primary(type='button', id='patient-signup') Patient
+            

@@ -7,5 +7,5 @@ $(document).ready(()=> {
   });
   $('#view-patients').click(() => {
     location.href = '/patients/view';
-  })
-})
+  });
+});

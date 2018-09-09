@@ -62,7 +62,7 @@ router.route('/patients/view')
     })
   });
   
-router.route('/patient/edit')
+router.route('/patients/edit')
   .get(function (req, res) {
     return res.render('pages/edit', {provider: false,
       user: req.user});
@@ -83,24 +83,24 @@ router.route('/patient/edit')
   });
 
   router.route('/provider/edit')
-  .get(function (req, res) {
-    return res.render('pages/edit', {provider: true,
-      user: req.user});
-  })
-  .post(function (req, res, next) {
-    let user = req.user;
-    for (var key in req.body) {
-      Provider.update(
-        { user },
-        { $set: 
-          {
-            key: req.body[key]
-          }
+      .get(function (req, res) {
+        return res.render('pages/edit', {provider: true,
+          user: req.user});
+      })
+      .post(function (req, res, next) {
+        let user = req.user;
+        for (var key in req.body) {
+          Provider.update(
+            { user },
+            { $set: 
+              {
+                key: req.body[key]
+              }
+            }
+          )
         }
-      )
-    }
-    return res.redirect('/dashboard')
-  });
+        return res.redirect('/dashboard')
+      });
 
 router.route('/login/patient')
   .get(function (req, res) {
@@ -168,7 +168,7 @@ router.route('/signup/provider')
           console.error(err);
           return next(err);
         }
-        return res.redirect('dashboard', {user: req.user});
+        return res.render('pages/dashboard', {user: req.user});
       });
     }) (req, res, next);
   });
@@ -190,7 +190,7 @@ router.route('/signup/patient')
           console.error(err);
           return next(err);
         }
-        return res.redirect('/dashboard');
+        return res.render('pages/dashboard', {user:req.user});
       });
     })(req, res, next);
   });

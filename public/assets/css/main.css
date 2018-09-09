@@ -141,7 +141,7 @@ a:after {
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 300px;
+	height: 900px;
 	width: 100%;
 	
     -webkit-background-size: 100%;

@@ -19,7 +19,7 @@ function make_promise(obj, method_name) {
     return obj[promise_name]
 }
 
-function signDocuments(providerName, providerEmail, patientName, patientEmail, prescriptions) {
+function signDocuments(providerName, providerEmail, patientName, patientEmail, prescriptions = "") {
     let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a';                 // Integrator Key associated with your DocuSign Integration
     let email = 'lhussain@princeton.edu';                           // Email for your DocuSign Account
     let password = 'Hussain123!';                       // Password for your DocuSign Account
