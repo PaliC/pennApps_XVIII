@@ -17,7 +17,7 @@ function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) {
     return next();
   }
-  return res.redirect('/login');
+  return res.redirect('/inde');
 }
 
 var
@@ -69,6 +69,28 @@ router.route('/login')
     })(req, res, next);
   });
 
+router.route('/login1')
+  .get(function (req, res) {
+    return res.render('pages/login1');
+  })
+  .post(function(req, res, next) {
+    passport.authenticate('local-login1', function(err, user, info) {
+      if (err) {
+        return next(err); // will generate a 500 error
+      }
+      if (!user) {
+        return res.status(409).render('pages/login1', {errMsg: info.errMsg});
+      }
+      req.login(user, function(err){
+        if(err){
+          console.error(err);
+          return next(err);
+        }
+        return res.redirect('/dashboard');
+      });
+    })(req, res, next);
+  });
+
 router.route('/signup')
   .get(function (req, res) {
     return res.render('pages/signup');
@@ -93,6 +115,13 @@ router.route('/signup')
 
 router.get('/dashboard', isLoggedIn, function (req, res) {
   return res.render('pages/dashboard', {
+    username: req.user.username,
+    email: req.user.email
+    });
+});
+
+router.get('/dashboard1', isLoggedIn, function (req, res) {
+  return res.render('pages/dashboard1', {
     username: req.user.username,
     email: req.user.email
     });

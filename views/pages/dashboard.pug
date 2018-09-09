@@ -29,7 +29,7 @@ html(lang='en')
             li.active
               a(href='#') PRESCRIPTIONS
             li.active
-              a(href='index') LOG OUT
+              a(href='/index') LOG OUT
         // /.nav-collapse
     #headerwrap
       .row.centered
@@ -39,8 +39,7 @@ html(lang='en')
                 .content
                     h2 
                         | WELCOME, #{username}
-                    .center
-                    a(href='#') GET PRESCRIPTIONS
+                    .center a(href='/v2/accounts/97a76b19-e6e9-486a-b85a-2db8ae10d10c/envelopes//documents') GET PRESCRIPTIONS
 
     // container
     // FOOTER

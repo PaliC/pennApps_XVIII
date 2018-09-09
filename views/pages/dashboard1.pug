@@ -1,7 +1,9 @@
-// for doctors 
+//for doctor
+
 doctype html
 html(lang='en')
   head
+    title Dashboard
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -25,31 +27,23 @@ html(lang='en')
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
             li.active
-              a(href='index') HOME
+              a(href='#') PRESCRIPTIONS
             li.active
-              a(href='login1') PATIENT LOG IN
-            li.active
-              a(href='#') DOCTOR LOG IN
+              a(href='/index') LOG OUT
         // /.nav-collapse
     #headerwrap
       .row.centered
       center
-          .container
+          main.container
             .jumbotron
-                .row.centered
-                .col-lg-8.col-lg-offset-2
-                    h2 LOGIN
+                .content
                     .center
-                        if errMsg
-                        p.errMsg= errMsg 
-                        center
-                        form.form-inline(action='/login', method='POST')
+                    if errMsg 
+                        p.errMsg= errMsg
+                    form.form-inline(action='/search_username', method='post')
                         div.form-group
-                          input.form-control(type='email', name='email', placeholder='email')
-                          input.form-control(type='password', name='password', placeholder='password')
-                        input.btn.btn-success.btn-default(type='submit')
-                        br
-                        e(href='signup') Need an account? Register Now!
+                            input.form-control(type='text', name='username_search', placeholder='username')
+
     // container
     // FOOTER
     #f
@@ -63,7 +57,4 @@ html(lang='en')
             a(href='#')
               i.fa.fa-dribbble
         // row
-      // container      
-
-
-      
+      // container    
