@@ -418,7 +418,7 @@ cite {
 }
 
 .text-primary {
-  color: #428bca;
+  color: #3071a9;
 }
 
 .text-primary:hover {
@@ -2202,6 +2202,7 @@ textarea.input-lg {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.428571429;
+border-radius: 40px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -2250,6 +2251,7 @@ fieldset[disabled] .btn {
 .btn-default {
   color: #333333;
   background-color: #ffffff;
+    border-radius: 60px;
   border-color: #cccccc;
 }
 
@@ -2290,8 +2292,19 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #428bca;
+  background-color: #3071a9;
   border-color: #357ebd;
+    border-radius: 40px;
+    background-image: linear-gradient(to right, #3071a9 0%, #528B8B 100%);
+    display: block;
+    box-sizing: border-box;
+    height: 50px;
+    width: 150px;
+    text-transform: uppercase;
+	padding: 8px;
+	margin: 0 auto;
+    font-size: 17px;
+
 }
 
 .btn-primary:hover,
@@ -2413,8 +2426,8 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-success {
   color: #ffffff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #285e8e;
+  border-color: #285e8e;
 }
 
 .btn-success:hover,
@@ -2495,7 +2508,7 @@ fieldset[disabled] .btn-info.active {
 
 .btn-link {
   font-weight: normal;
-  color: #428bca;
+  color: #2a6496;
   cursor: pointer;
   border-radius: 0;
 }
@@ -5100,7 +5113,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .label-primary {
-  background-color: #428bca;
+  background-color: #3071a9;
 }
 
 .label-primary[href]:hover,
@@ -5186,13 +5199,15 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 20px;
+  margin-bottom: 10px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #eeeeee;
+    max-width: 500px;
+    min-height: 400px;
 }
 
 .jumbotron h1 {
@@ -5205,20 +5220,20 @@ a.list-group-item.active > .badge,
 }
 
 .container .jumbotron {
-  border-radius: 6px;
+  border-radius: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 60px;
+    padding-bottom: 20px;
   }
   .container .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 100px;
+    padding-left: 100px;
   }
   .jumbotron h1 {
-    font-size: 63px;
+    font-size: 100px;
   }
 }
 
@@ -5772,17 +5787,17 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-primary {
-  border-color: #428bca;
+  border-color: #3071a9;
 }
 
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #428bca;
+  background-color: #3071a9;
+  border-color: #3071a9;
 }
 
 .panel-primary > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #428bca;
+  border-top-color: #3071a9;
 }
 
 .panel-primary > .panel-heading > .dropdown .caret {
@@ -5790,7 +5805,7 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-primary > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #428bca;
+  border-bottom-color: #3071a9;
 }
 
 .panel-success {

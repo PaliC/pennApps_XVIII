@@ -1,24 +1,41 @@
 extends layout
 
 block content
-  main.container
-    .jumbotron
-      if provider
-        form.form-inline(action='/provider/edit', method='post')
-          div.form-group
-            input.form-control(type='text', name='username', placeholder='username')
-            input.form-control(type='email', name='email', placeholder='email')
-            input.form-control(type='password', name='password', placeholder='password')
-            input.form-control(type='text', name='npi', placeholder='National Provider Identifier')
-          input.btn.btn-success.btn-default(type='submit')
-      else 
-        form.form-inline(action='/patient/edit', method='post')
-          div.form-group
-            input.form-control(type='text', name='username', placeholder='username')
-            input.form-control(type='email', name='email', placeholder='email')
-            input.form-control(type='password', name='password', placeholder='password')
-            input.form-control(type='text', name='address', placeholder='address')
-            input.form-control(type='text', name='city', placeholder='city')
-            input.form-control(type='text', name='state', placeholder='state')
-            input.form-control(type='tel', name='phone', placeholder='+(609)258-609')
-          input.btn.btn-success.btn-default(type='submit')
+          if provider
+                  #headerwrap
+                    .row.centered
+                    center
+                        main.container
+                            .jumbotron
+                                .content
+                                    h2
+                                        |   EDIT PROFILE
+                                    .center
+                                form.form-inline(action='/provider/edit', method='post')
+                                  div.form-group
+                                        input.form-control(type='text', name='username', placeholder='username')
+                                        input.form-control(type='email', name='email', placeholder='email')
+                                        input.form-control(type='password', name='password', placeholder='password')
+                                        input.form-control(type='text', name='npi', placeholder='National Provider Identifier')
+                                        input.btn.btn-success.btn-default(type='submit')
+      
+          else 
+                #headerwrap
+                    .row.centered
+                    center
+                        main.container
+                            .jumbotron
+                                .content
+                                    h2 
+                                        | EDIT PROFILE
+                                    .center 
+                                form.form-inline(action='/patient/edit', method='post')
+                                    div.form-group
+                                    input.form-control(type='text', name='username', placeholder='username')
+                                    input.form-control(type='email', name='email', placeholder='email')
+                                    input.form-control(type='password', name='password', placeholder='password')
+                                    input.form-control(type='text', name='address', placeholder='address')
+                                    input.form-control(type='text', name='city', placeholder='city')
+                                    input.form-control(type='text', name='state', placeholder='state')
+                                    input.form-control(type='tel', name='phone', placeholder='+(609)258-609')
+                                    input.btn.btn-success.btn-default(type='submit')

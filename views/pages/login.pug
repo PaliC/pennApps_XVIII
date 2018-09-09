@@ -1,29 +1,40 @@
 extends layout
 
 block content
-  main.container
-    .jumbotron
-      .content
-        h1
-          span.fa.fa-lock
-          if provider
-            | Provider Login
-          else 
-            | Patient Login
-        if errMsg
-          p.errMsg= errMsg 
+    if errMsg 
+        p.errMsg= errMsg
     if provider
-      form.form-inline(action='/login/provider', method='POST')
-        div.form-group
-          input.form-control(type='email', name='email', placeholder='email')
-          input.form-control(type='password', name='password', placeholder='password')
-        input.btn.btn-success.btn-default(type='submit')
-    else 
-      form.form-inline(action='/login/patient', method='POST')
-        div.form-group
-          input.form-control(type='email', name='email', placeholder='email')
-          input.form-control(type='password', name='password', placeholder='password')
-        input.btn.btn-success.btn-default(type='submit')
-
-
-      
+        #headerwrap
+            .row.centered
+            center
+              main.container
+                .jumbotron
+                    .content
+                        h2 
+                            | DOCTOR LOGIN
+                        .center
+                        if errMsg
+                            p.errMsg= errMsg 
+                    form.form-inline(action='/login/provider', method='POST')
+                        div.form-group
+                            input.form-control(type='email', name='email', placeholder='email')
+                            input.form-control(type='password', name='password', placeholder='password')
+                            br
+                            input.btn.btn-success.btn-default(type='submit')
+    else
+        #headerwrap
+            .row.centered
+            center
+                main.container
+                    .jumbotron
+                        .content
+                            h2 
+                                | PATIENT LOGIN
+                            .center
+                            if errMsg
+                                p.errMsg= errMsg 
+                        form.form-inline(action='/login/patient', method='POST')
+                            div.form-group
+                                input.form-control(type='email', name='email', placeholder='email')
+                                input.form-control(type='password', name='password', placeholder='password')
+                                input.btn.btn-success.btn-default(type='submit')

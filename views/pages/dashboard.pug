@@ -2,26 +2,32 @@ extends layout
 
 block content
   script(src='/assets/js/profile.js')
-  main.container
-    .jumbotron
-      h1
-        span.fa.fa-user Welcome
-      p Username: #{user.username}
-      p Email: #{user.email}
-      if user.npi
-        p NPI: #{user.npi}
-      else 
-        p Address: #{user.address}
-        p City: #{user.city}
-        p State: #{user.state}
-
-      if user.npi
-        form.btn-group
-          button.btn.btn-primary(type='button', id="edit-provider")
-            | Edit Profile
-          button.btn.btn-secondary(type='button', id="view-patients")
-            | View Patients
-      else 
-        form.btn-group
-          button.btn.btn-primary(type='button', id="edit-patient")
-            | Edit Profile
+  #headerwrap
+        .row.centered
+        center
+            main.container
+                .jumbotron
+                    .content
+                        h2
+                            | Welcome!
+                        .center
+                          p Username: #{user.username}
+                          p Email: #{user.email}
+                          if user.npi
+                            p NPI: #{user.npi}
+                          else 
+                            p Address: #{user.address}
+                            p City: #{user.city}
+                            p State: #{user.state}
+                        
+                        .center
+                          if user.npi
+                            form.btn-group
+                              button.btn.btn-primary(type='button', id="edit-provider")
+                                | Edit Profile
+                              button.btn.btn-primary(type='button', id="view-patients")
+                                | View Patients
+                          else 
+                            form.btn-group
+                              button.btn.btn-primary(type='button', id="edit-patient")
+                                | Edit Profile

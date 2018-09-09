@@ -2,13 +2,16 @@ extends layout
 
 block content
   script(src='/assets/js/profile.js')
-  main.container
-    .jumbotron
-        h1
-          span.fa.fa-user Patients
-        each patient in patients
-          form.form-inline(action='/patients/view', method='post')
-            li.swiper-slide= patient.username
-              input.form-control(type='text', name='id', value=patient._id, disabled='')
-              button.btn.btn-primary.annoying(type='button', value=patient._id)
-                | Send Prescription
+  #headerwrap
+        .row.centered
+        center
+            main.container
+                .jumbotron
+                    .content
+                        h2
+                            | Patients
+                        .center
+                            each patient in patients
+                              li.swiper-slide= patient.email
+                                button.btn.btn-primary.docusign(type='button')
+                                    | Prescribe

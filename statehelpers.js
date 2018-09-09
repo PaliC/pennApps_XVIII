@@ -19,7 +19,7 @@ function make_promise(obj, method_name) {
     return obj[promise_name]
 }
 
-function signDocuments(providerName, providerEmail, patientName, patientEmail, prescriptions) {
+function signDocuments(providerName, providerEmail, patientName, patientEmail, prescriptions = "") {
     let integratorKey = 'f457646d-2752-4789-b16f-e257ae060c3a';                 // Integrator Key associated with your DocuSign Integration
     let email = 'lhussain@princeton.edu';                           // Email for your DocuSign Account
     let password = 'Hussain123!';                       // Password for your DocuSign Account
@@ -134,8 +134,8 @@ function signDocuments(providerName, providerEmail, patientName, patientEmail, p
 
     envDef.compositeTemplates = compositeTemplateList;
     envDef.status = 'sent';
-    envDef.emailSubject = 'NODE Test Send';
-    envDef.emailBlurb = 'NODE Test Email';
+    envDef.emailSubject = 'Your new prescription!';
+    envDef.emailBlurb = 'Hi Patient, please find attached a PDF copy of your new prescription electronically signed for by your doctor.';
 
     envDef.cdseMode = false;
 
