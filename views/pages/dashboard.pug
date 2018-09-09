@@ -1,9 +1,58 @@
-extends layout
+//for patient
 
-block content
-  main.container
-    .jumbotron
-      h1
-        span.fa.fa-user Welcome
-      p Your username is: #{username}
-      p Your email is: #{email}
+doctype html
+html(lang='en')
+  head
+    title Dashboard
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', type='image/x-icon', href='favicon.ico')
+    title edoc
+    link(href='assets/css/style.css', rel='stylesheet')
+    link(href='assets/css/fonts.css', rel='stylesheet')
+    link(href='assets/css/main.css', rel='stylesheet')
+  body
+    // Fixed navbar
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') edoc
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li.active
+              a(href='#') PRESCRIPTIONS
+            li.active
+              a(href='index') LOG OUT
+        // /.nav-collapse
+    #headerwrap
+      .row.centered
+      center
+          main.container
+            .jumbotron
+                .content
+                    h2 
+                        | WELCOME, #{username}
+                    .center
+                    a(href='#') GET PRESCRIPTIONS
+
+    // container
+    // FOOTER
+    #f
+      .container
+        .row.centered
+          center
+            a(href='#')
+              i.fa.fa-twitter
+            a(href='#')
+              i.fa.fa-facebook
+            a(href='#')
+              i.fa.fa-dribbble
+        // row
+      // container    

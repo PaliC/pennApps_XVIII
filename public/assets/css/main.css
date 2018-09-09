@@ -73,6 +73,33 @@ a:after {
     transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
+e {
+    color: #064374;
+    word-wrap: break-word;
+    font-size: 16px;
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+e:hover,
+e:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+e:before,
+e:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
  hr {
     display: block;
     height: 1px;
@@ -141,7 +168,7 @@ a:after {
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 300px;
+	min-height: 650px;
 	width: 100%;
 	
     -webkit-background-size: 100%;

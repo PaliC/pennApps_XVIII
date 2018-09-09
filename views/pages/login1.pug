@@ -1,3 +1,4 @@
+// for doctors 
 doctype html
 html(lang='en')
   head
@@ -24,30 +25,31 @@ html(lang='en')
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
             li.active
-              a(href='index') HOME
+              a(href='/index') HOME
             li.active
               a(href='#') PATIENT LOG IN
             li.active
-              a(href='login1') DOCTOR LOG IN
+              a(href='/signup') DOCTOR LOG IN
         // /.nav-collapse
     #headerwrap
       .row.centered
       center
-          main.container
-              div.jumbotron
-                h2
-                    .row.centered
-                    | SIGNUP
-                .center
-                    if errMsg 
-                        p.errMsg= errMsg
-                    form.form-inline(action='/signup', method='post')
+          .container
+            .jumbotron
+                .row.centered
+                .col-lg-8.col-lg-offset-2
+                    h2 LOGIN
+                    .center
+                        if errMsg
+                        p.errMsg= errMsg 
+                        center
+                        form.form-inline(action='/login', method='POST')
                         div.form-group
-                            input.form-control(type='text', name='username', placeholder='username')
-                            input.form-control(type='email', name='email', placeholder='email')
-                            input.form-control(type='password', name='password', placeholder='password')
+                          input.form-control(type='email', name='email', placeholder='email')
+                          input.form-control(type='password', name='password', placeholder='password')
                         input.btn.btn-success.btn-default(type='submit')
-        
+                        br
+                        e(href='/signup') Need an account? Register Now!
     // container
     // FOOTER
     #f
@@ -62,3 +64,6 @@ html(lang='en')
               i.fa.fa-dribbble
         // row
       // container      
+
+
+      
