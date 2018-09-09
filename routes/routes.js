@@ -65,7 +65,7 @@ router.route('/login/patient')
           return next(err);
         }
         req.session.save(function() {
-          return res.render('pages/dashboard', {user: req.user});
+          return res.redirect('/dashboard');
         });
       });
     })(req, res, next);
@@ -113,7 +113,7 @@ router.route('/signup/provider')
           console.error(err);
           return next(err);
         }
-        return res.render('pages/dashboard', {user: req.user});
+        return res.redirect('dashboard', {user: req.user});
       });
     }) (req, res, next);
   });
