@@ -2202,6 +2202,7 @@ textarea.input-lg {
   font-size: 14px;
   font-weight: normal;
   line-height: 1.428571429;
+border-radius: 40px;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -2250,6 +2251,7 @@ fieldset[disabled] .btn {
 .btn-default {
   color: #333333;
   background-color: #ffffff;
+    border-radius: 60px;
   border-color: #cccccc;
 }
 
@@ -2413,8 +2415,8 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-success {
   color: #ffffff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #285e8e;
+  border-color: #285e8e;
 }
 
 .btn-success:hover,
@@ -2495,7 +2497,7 @@ fieldset[disabled] .btn-info.active {
 
 .btn-link {
   font-weight: normal;
-  color: #428bca;
+  color: #2a6496;
   cursor: pointer;
   border-radius: 0;
 }
@@ -5186,13 +5188,15 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 20px;
+  margin-bottom: 10px;
   font-size: 21px;
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
   background-color: #eeeeee;
+    max-width: 500px;
+    min-height: 400px;
 }
 
 .jumbotron h1 {
@@ -5205,20 +5209,20 @@ a.list-group-item.active > .badge,
 }
 
 .container .jumbotron {
-  border-radius: 6px;
+  border-radius: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 60px;
+    padding-bottom: 20px;
   }
   .container .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 100px;
+    padding-left: 100px;
   }
   .jumbotron h1 {
-    font-size: 63px;
+    font-size: 100px;
   }
 }
 
