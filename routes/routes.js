@@ -58,7 +58,7 @@ router.route('/patients/view')
         userMap[user.username] = user
       });
 
-      return res.render('pages/patients', {patients: userMap});
+      return res.render('pages/patients', {user: req.user, patients: userMap});
     })
   });
   
@@ -82,12 +82,11 @@ router.route('/patients/edit')
     return res.redirect('/dashboard')
   });
 
-  router.route('/provider/edit')
-      .get(function (req, res) {
-        return res.render('pages/edit', {provider: true,
-          user: req.user});
-      })
-      .post(function (req, res, next) {
+router.route('/provider/edit')
+.get(function (req, res) {
+    return res.render('pages/edit', {provider: true, user: req.user});
+})
+.post(function (req, res, next) {
         let user = req.user;
         for (var key in req.body) {
           Provider.update(
@@ -144,7 +143,6 @@ router.route('/login/patient')
           return next(err);
         }
         req.session.save(function() {
-          console.log('something' + req.session.passport);
           return res.render('pages/dashboard', {user: req.user});
         });
       });
