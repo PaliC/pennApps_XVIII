@@ -19,14 +19,11 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    if(err) {
-      console.error('There was an error accessing the records of' +
-      ' user with id: ' + id);
-      return console.log(err.message);
-    }
-    return done(null, user);
-  })
+  var user = Patient.findById(id);
+  if (!user) {
+    user = Provider.findById(id);
+  }
+  return done(null, user);
 });
 
 passport.use('provider-signup', new LocalStrategy({
@@ -116,6 +113,7 @@ passport.use('patient-login', new LocalStrategy({
   },
   function(req, email, password, done) {
     Patient.findOne({email: email}, function(err, user) {
+      console.log(user);
       if(err) {
         return errHandler(err);
       }
@@ -127,7 +125,7 @@ passport.use('patient-login', new LocalStrategy({
         return done(null, false, {errMsg: 'Invalid password try again'});
       }
       return done(null, user);
-      });
+    });
 }));
 
 passport.use('provider-login', new LocalStrategy({

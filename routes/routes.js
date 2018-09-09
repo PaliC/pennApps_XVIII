@@ -14,7 +14,8 @@ var router = express.Router();
 */
 //needed to protect the '/dashboard' route
 function isLoggedIn(req, res, next) {
-  if(req.isAuthenticated()) {
+  console.log(req.session.passport.user);
+  if(req.session.passport.user != undefined) {
     return next();
   }
   return res.redirect('/login');
@@ -57,14 +58,17 @@ router.route('/login/patient')
         return next(err); // will generate a 500 error
       }
       if (!user) {
-        return res.status(409).render('pages/patient', {provider: false, errMsg: info.errMsg});
+        return res.status(409).render('pages/login', {provider: false, errMsg: info.errMsg});
       }
       req.login(user, function(err){
         if(err){
           console.error(err);
           return next(err);
         }
-        return res.render('pages/dashboard', {user: user});
+        req.session.save(function() {
+          console.log('something' + req.session);
+          return res.render('pages/dashboard', {user: req.user});
+        });
       });
     })(req, res, next);
   });
@@ -86,7 +90,10 @@ router.route('/login/patient')
           console.error(err);
           return next(err);
         }
-        return res.render('pages/dashboard', {user: user});
+        req.session.save(function() {
+          console.log('something' + req.session.passport);
+          return res.render('pages/dashboard', {user: req.user});
+        });
       });
     })(req, res, next);
   });
@@ -108,7 +115,7 @@ router.route('/signup/provider')
           console.error(err);
           return next(err);
         }
-        return res.redirect('/dashboard');
+        return res.render('pages/dashboard', {user: req.user});
       });
     }) (req, res, next);
   });
@@ -144,9 +151,10 @@ router.route('/login/pre')
   .get(function (req, res) {
     return res.render('pages/pre', {login: true});
   })
+
 router.get('/dashboard', isLoggedIn, function (req, res) {
   return res.render('pages/dashboard', {
-    user: req.user,
+      user: req.user,
     });
 });
 
