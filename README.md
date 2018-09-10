@@ -1,5 +1,5 @@
 
-# pennappsxviii
+# pennappsxviii- Apothecary
 Web pipeline for e-prescriptions, connecting healthcare providers and patients. 
 
 Tech Stack:
@@ -15,6 +15,4 @@ Express.js serving MongoDB database, Passport.js user authentication, DocuSign A
 1. `nodemon server`
 2. Visit [http://localhost:3000/](http://localhost:3000/)
 
-Sandbox creds:
-lhussain@princeton.edu
-Hussain123!
+
